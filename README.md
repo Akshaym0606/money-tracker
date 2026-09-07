@@ -31,3 +31,10 @@ Balance is independent:
 `balance = opening balance - groceries - other expenses - money lent + returned loans`
 
 Adding an earning does NOT increase the current balance.
+
+
+## Install as an app (PWA)
+The site is configured as a Progressive Web App. Once GitHub Pages serves the updated files over HTTPS:
+- Android/Chrome: open the site and choose **Install app** or **Add to Home screen**.
+- iPhone/Safari: open the site, tap **Share**, then **Add to Home Screen**.
+- Desktop Chrome/Edge: use the install icon in the address bar or browser menu.
