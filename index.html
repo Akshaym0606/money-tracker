@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Money Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERSONAL FINANCE</p>
+        <h1>Hey <span id="userName">there</span>!</h1>
+      </div>
+      <div class="top-actions">
+        <button class="date-pill" id="dateBtn" title="Open history">
+          <span>▣</span><span id="monthLabel">September</span>
+        </button>
+        <button class="icon-btn primary" id="addBtn" aria-label="Add transaction">+</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-grid">
+        <article class="stat-card">
+          <div class="stat-title"><span class="mini-icon income">↗</span> Earnings</div>
+          <div class="stat-value" id="earningsValue">₹0</div>
+          <div class="stat-note">Cumulative earnings</div>
+        </article>
+        <article class="stat-card balance-card">
+          <div class="stat-title"><span class="mini-icon balance">₹</span> Current Balance</div>
+          <div class="stat-value" id="balanceValue">₹0</div>
+          <div class="stat-note">Opening balance − spending/lending + returns</div>
+        </article>
+      </section>
+
+      <section class="section-head">
+        <div>
+          <p class="eyebrow">TODAY</p>
+          <h2 id="todayLabel">Today</h2>
+        </div>
+        <button class="text-btn" id="todayDetailsBtn">See all</button>
+      </section>
+
+      <section class="quick-grid">
+        <button class="category-card grocery" data-type="grocery">
+          <span class="category-icon">🛒</span>
+          <span class="category-name">Groceries</span>
+          <strong id="todayGroceries">₹0</strong>
+          <small>Today</small>
+        </button>
+        <button class="category-card lent" data-type="lent">
+          <span class="category-icon">🤝</span>
+          <span class="category-name">Money Lent</span>
+          <strong id="todayLent">₹0</strong>
+          <small>Not returned: <span id="outstandingLent">₹0</span></small>
+        </button>
+        <button class="category-card expense" data-type="expense">
+          <span class="category-icon">💸</span>
+          <span class="category-name">Other Expenses</span>
+          <strong id="todayExpenses">₹0</strong>
+          <small>Today</small>
+        </button>
+        <button class="category-card earning" data-type="earning">
+          <span class="category-icon">💰</span>
+          <span class="category-name">Add Earnings</span>
+          <strong id="todayEarnings">₹0</strong>
+          <small>Today's earnings</small>
+        </button>
+      </section>
+
+      <section class="section-head transactions-head">
+        <div>
+          <p class="eyebrow">ACTIVITY</p>
+          <h2>Recent Transactions</h2>
+        </div>
+        <button class="text-btn" id="historyBtn">See all</button>
+      </section>
+
+      <section class="transactions" id="transactionsList"></section>
+
+      <section class="empty-state hidden" id="emptyState">
+        <div class="empty-icon">✦</div>
+        <h3>No transactions yet</h3>
+        <p>Add your first earning, grocery purchase, expense, or money lent.</p>
+        <button class="primary-btn" id="emptyAddBtn">Add transaction</button>
+      </section>
+
+      <section class="info-card">
+        <div class="info-icon">i</div>
+        <div>
+          <strong>How your balance works</strong>
+          <p>Earnings are cumulative and do not increase the current balance. Groceries, other expenses and money lent reduce the balance. Returned loans increase it again.</p>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="dashboard"><span>⌂</span>Home</button>
+      <button class="nav-item" data-view="history"><span>▤</span>History</button>
+      <button class="nav-item" data-view="lent"><span>🤝</span>Lent</button>
+      <button class="nav-item" data-view="settings"><span>⚙</span>Settings</button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="close-btn" id="closeModal">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
